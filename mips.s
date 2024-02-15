@@ -178,6 +178,13 @@ process_whole_string:
         end_while:
             #if $t8 > 0, at least one valid character, return v0 else return '-'
             beq $t8, $zero, return_dash
+            j return_normal
+        
+        return_dash:
+            li $v0, 45
+        
+        return_normal:
+            jr $ra
 
         
 
