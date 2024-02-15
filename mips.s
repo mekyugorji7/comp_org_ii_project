@@ -150,6 +150,13 @@ process_whole_string:
         
         is_num:
             addi $s1, $s1, -48
+            add $v0, $v0, $s1
+            addi $t8, $t8, 1
+            j next_symbol
+        
+        not_num:
+            #Else if character >= 'a' and <= 'v':
+            li $t1, 'a'
 
         
 
