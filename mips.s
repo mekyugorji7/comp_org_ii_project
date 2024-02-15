@@ -45,3 +45,12 @@ process_whole_string:
     #Store the address on the stack
     sw $a0, 0($sp)
 
+    slash_loop:
+    
+        #Increment pointer by 1 and search for a / and replace with a null terminator
+        addi $a0, $a0, 1
+        li $t3, '/'
+        lb $t4, 0($a0)
+    
+        beq $t3, $t4, add_null_term
+
