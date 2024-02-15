@@ -123,6 +123,14 @@ process_whole_string:
         
             #Break out of loop if character is null
             beq $s1, $zero, end_while
+            
+            #If character is uppercase, convert it to lowercase, use $t0 and $t1
+            li $t1, 'A'
+            bge $s1, $t1, test_upper
+            j not_uppercase
+        
+        test_upper:
+            li $t1, 'Z'
 
     
 
