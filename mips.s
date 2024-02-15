@@ -60,6 +60,7 @@ process_whole_string:
         j find_slashes
     
     null_term:
+    
         # "/" or newline character recognized
         sb $zero, 0($a0)
         
@@ -111,6 +112,7 @@ process_whole_string:
         syscall
     
     process_substring:
+    
         #Load the pointer to the address on the Stack into $s0
         lw $s0, 0($sp)
         add $v0, $zero, $zero
