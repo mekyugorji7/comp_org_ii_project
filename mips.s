@@ -93,6 +93,16 @@ process_whole_string:
         #restore $a0
         add $a0, $s7, $zero
         lb $t4, 0($a0)
+        li $t3, 0
+        beq $t3, $t4, skip_print_slash
+    
+        li $v0, 11
+        li $a0, '/'
+        syscall
+    
+        #restore $a0
+        add $a0, $s7, $zero
+    
 
     
 
