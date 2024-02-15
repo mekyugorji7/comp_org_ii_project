@@ -19,3 +19,12 @@ main:
     li $v0, 4
     la $a0, prompt
     syscall
+
+     # Read input string
+    li $v0, 8
+    la $a0, str
+    li $a1, 1001
+    syscall
+
+    # Process the input string
+    jal process_whole_string
