@@ -138,6 +138,13 @@ process_whole_string:
             addi $s1, $s1, 32
             
         not_uppercase:
+            #If character >= '0' and <= '9'
+            li $t1, '0'
+            bge $s1, $t1, check_num
+            j next_symbol
+        
+        check_num:
+            li $t1, '9'
 
         
 
