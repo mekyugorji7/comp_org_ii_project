@@ -145,6 +145,11 @@ process_whole_string:
         
         check_num:
             li $t1, '9'
+            ble $s1, $t1, is_num
+            j not_num
+        
+        is_num:
+            addi $s1, $s1, -48
 
         
 
