@@ -53,4 +53,13 @@ process_whole_string:
         lb $t4, 0($a0)
     
         beq $t3, $t4, add_null_term
+        li $t3, 10 #newline character
+        lb $t4, 0($a0)
+    
+        beq $t3, $t4, add_null_term
+        j slash_loop
+    
+    add_null_term:
+        # "/" or newline character recognized
+        sb $zero, 0($a0)
 
