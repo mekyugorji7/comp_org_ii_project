@@ -45,21 +45,21 @@ process_whole_string:
     #Store the address on the stack
     sw $a0, 0($sp)
 
-    slash_loop:
+    find_slashes:
     
         #Increment pointer by 1 and search for a / and replace with a null terminator
         addi $a0, $a0, 1
         li $t3, '/'
         lb $t4, 0($a0)
     
-        beq $t3, $t4, add_null_term
+        beq $t3, $t4, null_term
         li $t3, 10 #newline character
         lb $t4, 0($a0)
     
-        beq $t3, $t4, add_null_term
-        j slash_loop
+        beq $t3, $t4, null_term
+        j find_slashes
     
-    add_null_term:
+    null_term:
         # "/" or newline character recognized
         sb $zero, 0($a0)
         
@@ -74,4 +74,12 @@ process_whole_string:
         # Reset $a1 to point to the next character as the start of the next substring
         add $s7, $a0, $zero
         li $t3, '-'
+
+        beq $t3, $v0, dash_print
+        add $a0, $v0, $zero
+        li $v0, 1
+        syscall
+        j print_slash
+
+    
 
