@@ -62,4 +62,16 @@ process_whole_string:
     add_null_term:
         # "/" or newline character recognized
         sb $zero, 0($a0)
+        
+        # When a slash or end of string is found, process the substring
+        jal process_substring
+    
+        #After processing substring, restore the stack, advance the string pointer by 1, and repeat
+        addi $sp, $sp, 4
+        addi $a0, $a0, 1
+        
+        #Print the return value of process_substring in $v0
+        # Reset $a1 to point to the next character as the start of the next substring
+        add $s7, $a0, $zero
+        li $t3, '-'
 
