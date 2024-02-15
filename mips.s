@@ -112,6 +112,18 @@ process_whole_string:
     
     process_substring:
         #Load the pointer to the address on the Stack into $s0
+        lw $s0, 0($sp)
+        add $v0, $zero, $zero
+    
+        add $t8, $zero, $zero
+    
+        case_checker:
+            #Load byte at the pointer into $s1
+            lb $s1, 0($s0)
+        
+            #Break out of loop if character is null
+            beq $s1, $zero, end_while
+
     
 
     
