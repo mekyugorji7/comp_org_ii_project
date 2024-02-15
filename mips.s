@@ -163,6 +163,13 @@ process_whole_string:
         letter_range:
             li $t1, 'v'
             ble $s1, $t1, is_letter
+            j next_symbol
+        
+        is_letter:
+            addi $s1, $s1, -87
+            add $v0, $v0, $s1
+            addi $t8, $t8, 1
+        
 
         
 
