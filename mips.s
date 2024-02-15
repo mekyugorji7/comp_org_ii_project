@@ -81,5 +81,18 @@ process_whole_string:
         syscall
         j print_slash
 
+    dash_print:
+        #Print "-" for invalid characters
+        li $v0, 11
+        li $a0, '-'
+        syscall
+
+     print_slash:
+        #Print a seperator character if the next charactor is not the end of string
+    
+        #restore $a0
+        add $a0, $s7, $zero
+        lb $t4, 0($a0)
+
     
 
