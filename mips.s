@@ -102,6 +102,16 @@ process_whole_string:
     
         #restore $a0
         add $a0, $s7, $zero
+
+    skip_print_slash:
+        j process_whole_string
+    
+    check_end:
+        li $v0, 10
+        syscall
+    
+    process_substring:
+        #Load the pointer to the address on the Stack into $s0
     
 
     
