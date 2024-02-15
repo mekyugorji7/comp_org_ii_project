@@ -131,6 +131,15 @@ process_whole_string:
         
         test_upper:
             li $t1, 'Z'
+            ble $s1, $t1, is_uppercase
+            j not_uppercase
+        
+        is_uppercase:
+            addi $s1, $s1, 32
+            
+        not_uppercase:
+
+        
 
     
 
