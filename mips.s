@@ -157,6 +157,14 @@ process_whole_string:
         not_num:
             #Else if character >= 'a' and <= 'v':
             li $t1, 'a'
+            bge $s1, $t1, letter_range
+            j next_symbol
+        
+        letter_range:
+            li $t1, 'v'
+            ble $s1, $t1, is_letter
+
+        
 
         
 
