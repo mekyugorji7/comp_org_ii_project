@@ -169,7 +169,15 @@ process_whole_string:
             addi $s1, $s1, -87
             add $v0, $v0, $s1
             addi $t8, $t8, 1
+
+        next_symbol:
+            #Move to next character by incrementing $s0
+            addi $s0, $s0, 1
+            j case_checker
         
+        end_while:
+            #if $t8 > 0, at least one valid character, return v0 else return '-'
+            beq $t8, $zero, return_dash
 
         
 
