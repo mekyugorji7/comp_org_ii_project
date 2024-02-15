@@ -28,3 +28,20 @@ main:
 
     # Process the input string
     jal process_whole_string
+
+    # The process_whole_string  identifies and handles substrings
+
+process_whole_string:
+
+    #Get the current character and check if its the end of string
+
+    lb $t3, 0($a0)  
+    beq $t3, $zero, check_end  
+    
+    #Save the pointer to the start of the string on the Stack and make room on stack for string address
+
+    sub $sp, $sp, 4
+    
+    #Store the address on the stack
+    sw $a0, 0($sp)
+
