@@ -98,7 +98,7 @@ process_whole_string:
         beq $t3, $t4, skip_print_slash
     
         li $v0, 11
-        li $a0, '/'
+        li $a0, ' / '
         syscall
     
         #restore $a0
